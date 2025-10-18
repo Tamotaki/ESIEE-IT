@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 class Membre {
@@ -8,23 +9,29 @@ class Membre {
     private List<Media> mediasEmpruntes;
 
     //Constructeur paramétré
-    public Membre(String nom, int id)
-
-        //Methodes
-    public void getNom()
-    {
+    public Membre(String nom, int id) {
         this.nom = nom;
-    }
-    public void getId()
-    {
         this.id = id;
+        this.mediasEmpruntes = new ArrayList<>();
     }
-public void emprunterMedia(List<Media> mediasEmpruntes)
-
-    @Override public String toString()
-    {
-        return "Membre {nom,id}";
+    //Méthodes get
+    public String getNom() {
+        return this.nom;
     }
-    //Collections
+    public int getId() {
+        return this.id;
+    }
+    //Méthode emprunterMedia
+    public void emprunterMedia(Media media) {
+        this.mediasEmpruntes.add(media);
+    }
+    //Get liste des médias empruntés
+    public List<Media> getMediasEmpruntes() {
+        return this.mediasEmpruntes;
+    }
 
+    @Override
+    public String toString() {
+        return "Membre{nom='" + nom + "', id=" + id + "}";
+    }
 }

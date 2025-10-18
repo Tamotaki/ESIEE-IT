@@ -1,0 +1,3 @@
+interface Empruntable {
+    void emprunter();
+}

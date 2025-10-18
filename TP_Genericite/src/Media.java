@@ -1,20 +1,25 @@
 abstract class Media {
-    //Champs privés
     private String titre;
     private int anneePublication;
+    public Media() {}
+    public Media(String titre, int anneePublication) {
+        this.titre = titre;
+        this.anneePublication = anneePublication;
+    }
 
-    //Constructeur par défaut
-    public Media () {}
-
-    //Contructeur paramétré
-    public Media(String titre, int anneePublication) {}
-this.titre = titre
-    this.anneePublication = anneePublication
-
-    //Methodes
-    public void getTitre() {);}
-    public void getAnneePublication() {);}
+    public String getTitre() {
+        return titre;
+    }
+    public int getAnneePublication() {
+        return anneePublication;
+    }
     public abstract String getDescription();
+    public void afficherDetails() {
+        System.out.println(getDescription());
+    }
 
-    @Override public String toString() {System.out.println(titre(anneePublication));}
+    @Override
+    public String toString() {
+        return titre + " (" + anneePublication + ")";
+    }
 }
