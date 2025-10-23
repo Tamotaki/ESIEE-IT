@@ -1,4 +1,16 @@
+/**
+ * Classe principale pour tester la généricité avec une bibliothèque de médias.
+ * Démontre l'utilisation des collections, méthodes génériques, tri et polymorphisme.
+ * 
+ * @author Votre nom
+ * @version 1.0
+ */
 public class Main {
+    /**
+     * Méthode principale qui teste toutes les fonctionnalités du projet.
+     * 
+     * @param args Arguments de la ligne de commande (non utilisés)
+     */
     public static void main(String[] args) {
         //Collections
         java.util.List<Media> mediasDisponibles = new java.util.ArrayList<>();
@@ -93,14 +105,25 @@ public class Main {
         }
     }
 
-    //Méthode générique pour afficher
+    /**
+     * Méthode générique pour afficher tous les éléments d'une liste.
+     * 
+     * @param <T> Type générique des éléments de la liste
+     * @param liste La liste à afficher
+     */
     public static <T> void afficherListe(java.util.List<T> liste) {
         for (T element : liste) {
             System.out.println("- " + element);
         }
     }
 
-    //Méthodes de filtrage simples
+    /**
+     * Filtre les médias publiés après une année donnée.
+     * 
+     * @param liste La liste de médias à filtrer
+     * @param anneeMin L'année minimum (exclusive)
+     * @return Une nouvelle liste contenant les médias publiés après anneeMin
+     */
     public static java.util.List<Media> filtrerMediasParAnnee(java.util.List<Media> liste, int anneeMin) {
         java.util.List<Media> resultat = new java.util.ArrayList<>();
         for (Media media : liste) {
@@ -111,6 +134,13 @@ public class Main {
         return resultat;
     }
 
+    /**
+     * Filtre les membres dont le nom commence par une lettre donnée.
+     * 
+     * @param liste La liste de membres à filtrer
+     * @param lettre La lettre de début du nom
+     * @return Une nouvelle liste contenant les membres correspondants
+     */
     public static java.util.List<Membre> filtrerMembresParLettre(java.util.List<Membre> liste, String lettre) {
         java.util.List<Membre> resultat = new java.util.ArrayList<>();
         for (Membre membre : liste) {
@@ -121,6 +151,12 @@ public class Main {
         return resultat;
     }
 
+    /**
+     * Filtre pour ne garder que les objets de type Livre.
+     * 
+     * @param liste La liste de médias à filtrer
+     * @return Une nouvelle liste contenant seulement les livres
+     */
     public static java.util.List<Media> filtrerSeulementLivres(java.util.List<Media> liste) {
         java.util.List<Media> resultat = new java.util.ArrayList<>();
         for (Media media : liste) {
@@ -131,7 +167,12 @@ public class Main {
         return resultat;
     }
 
-    //Méthodes de tri simples
+    /**
+     * Trie les médias par année de publication (ordre décroissant).
+     * Utilise l'algorithme de tri à bulles.
+     * 
+     * @param liste La liste de médias à trier (modifiée sur place)
+     */
     public static void trierMediasParAnnee(java.util.List<Media> liste) {
         for (int i = 0; i < liste.size() - 1; i++) {
             for (int j = 0; j < liste.size() - 1 - i; j++) {
@@ -144,6 +185,12 @@ public class Main {
         }
     }
 
+    /**
+     * Trie les livres par nom d'auteur (ordre alphabétique).
+     * Utilise l'algorithme de tri à bulles.
+     * 
+     * @param liste La liste de livres à trier (modifiée sur place)
+     */
     public static void trierLivresParAuteur(java.util.List<Livre> liste) {
         for (int i = 0; i < liste.size() - 1; i++) {
             for (int j = 0; j < liste.size() - 1 - i; j++) {
@@ -156,13 +203,25 @@ public class Main {
         }
     }
 
-    //Méthode générique de copie
+    /**
+     * Méthode générique pour copier tous les éléments d'une collection vers une autre.
+     * 
+     * @param <T> Type générique des éléments
+     * @param source Collection source à copier
+     * @param destination Collection de destination
+     */
     public static <T> void copierCollection(java.util.Collection<T> source, java.util.Collection<T> destination) {
         for (T element : source) {
             destination.add(element);
         }
     }
 
+    /**
+     * Récupère tous les médias empruntés sans doublons.
+     * 
+     * @param emprunts Map associant chaque membre à ses emprunts
+     * @return Un Set contenant tous les médias empruntés (sans doublons)
+     */
     public static java.util.Set<Media> getMediasEmpruntes(java.util.Map<Membre, java.util.List<Media>> emprunts) {
         java.util.Set<Media> mediasEmpruntes = new java.util.HashSet<>();
         for (java.util.List<Media> medias : emprunts.values()) {
